@@ -23,6 +23,11 @@ $ terraform apply
 - Configure your DNS
 - Upload your website to the bucket s3
 
+Using:
+* [x] [Terraform](https://www.terraform.io/)
+
+<img src="https://www.datocms-assets.com/2885/1629941242-logo-terraform-main.svg" width="200">
+
 Autor:
 *  [GitHub](https://github.com/caaguirre194)
 	 @caaguirre194
