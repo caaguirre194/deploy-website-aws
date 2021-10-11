@@ -1,2 +1,3 @@
-# deploy-webside-aws
-Deploying a Website to AWS with Terraform
+# Deploying a Website to AWS with Terraform
+
+ ![GitHub](/img/architecture.svg)
