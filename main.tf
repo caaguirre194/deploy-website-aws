@@ -5,7 +5,7 @@ provider "aws" {
   secret_key = var.user_information.secret_key
 }
 
-module "acm_certificate_webside" {
+module "acm_certificate_website" {
     source = "./modules/security/acm_certificate"
 
     stack_id           = var.stack_id
@@ -13,7 +13,7 @@ module "acm_certificate_webside" {
 }  
 
 # Cloudfront
-  module "cloudfront-webside" {
+  module "cloudfront-website" {
     source = "./modules/cloudFrontS3"
 
     bucket_name                = "front"
@@ -27,20 +27,20 @@ module "acm_certificate_webside" {
     alb_dns_name               = ""
     bucket_content_domain_name = ""  
     # custom certificate
-    acm_certificate_arn        = module.acm_certificate_webside.acm_certificate_arn
+    acm_certificate_arn        = module.acm_certificate_website.acm_certificate_arn
     aliases                    = var.aliases
 }    
 
 # Route 53
-module "dns-webside" {
+module "dns-website" {
     source = "./modules/route53"
     name                           = "DNS"
     layer                          = var.layer
     stack_id                       = var.stack_id
     domain_name                    = var.domain_name
-    cloudfront_distribution        = module.cloudfront-webside.s3_distribution.domain_name
-    hosted_zone_id                 = module.cloudfront-webside.s3_distribution.hosted_zone_id
-    s3_distribution                = module.cloudfront-webside.s3_distribution
+    cloudfront_distribution        = module.cloudfront-website.s3_distribution.domain_name
+    hosted_zone_id                 = module.cloudfront-website.s3_distribution.hosted_zone_id
+    s3_distribution                = module.cloudfront-website.s3_distribution
     use_default_domain             = true
 } 
 
