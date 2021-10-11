@@ -18,6 +18,11 @@ $ terraform init
 $ terraform apply
 ```
 
+## Last steps
+
+- Configure your DNS
+- Upload your website to the bucket s3
+
 Autor:
 *  [GitHub](https://github.com/caaguirre194)
 	 @caaguirre194
